@@ -24,6 +24,7 @@ enum Api{
   CurrentList = "/currentList"
 }
 
+
 function listApi(data: ListType) {
   return post(Api.List, data)
 }
