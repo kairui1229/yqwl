@@ -1,0 +1,22 @@
+// 覆盖变量
+@forward "element-plus/theme-chalk/src/common/var.scss" with (
+  $colors: (
+    'primary': (
+      'base': #05d86f
+    ),
+    'success': (
+      'base': #0985f8 // 保持原成功色
+    ),
+    // 'warning': (
+    //   'base': rgb(255, 0, 0) // 正红色
+    // ),
+    'danger': (
+      'base': rgb(255, 0, 0) // 正红色
+    ),
+    'error': (
+      'base': #cf4444 // 保持原错误色
+    ),
+ )
+);
+// 导入全部组件样式（必须放在变量覆盖之后）
+@use "element-plus/theme-chalk/src/index.scss" as *;
