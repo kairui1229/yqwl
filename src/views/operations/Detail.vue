@@ -80,7 +80,6 @@ const orderData = ref(Mock.mock({
   feeInfo: "电费+服务费+停车费，高峰时段费用为2.3元1度，停车费2元/小时，服务费5元/次",
   remark: "暂无",
 }));
-
 </script>
 
 <style lang="less" scoped>
