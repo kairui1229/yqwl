@@ -6,7 +6,8 @@
       </el-icon>
       <span>{{ item.name }}</span>
     </template>
-    <my-menu v-for="child in item.children" :key="child.url" :item="child"></my-menu>
+    <!-- 自己调用自己 -->
+    <MenuItem v-for="child in item.children" :key="child.url" :item="child"></MenuItem>
   </el-sub-menu>
   <el-menu-item v-else :index="item.url" @click="add(item.name,item.url,item.icon)" v-show="!(item.name ==='订单详情')">
     <template #title>
@@ -19,32 +20,17 @@
 </template>
 
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import type{ PropType } from 'vue';
-import type{ MenuItem as MenuItemType } from '@/types/user/index';
+<script setup lang="ts">
 import { useTabsStore } from '@/store/tabs';
+import type { MenuItem as MenuItemType } from '@/types/user/index';
 
-export default defineComponent({
-  name: 'MyMenu',
-  props: {
-    item:{
-      type: Object as PropType<MenuItemType>,
-      required: true
-    }
-  },
-  setup(){
-    const tabsStore = useTabsStore();
-    const {addTab,setCurrentTab} = tabsStore;
-    const add = (name:string,url:string,icon:string)=>{
-      addTab(name,url,icon);
-      setCurrentTab(name,url);
-    }
-    return {
-      add
-    }
-  }
-});
+defineProps<{ item: MenuItemType }>();
+
+const { addTab, setCurrentTab } = useTabsStore();
+const add = (name: string, url: string, icon: string) => {
+  addTab(name, url, icon);
+  setCurrentTab(name, url);
+};
 </script>
 
 <style lang="less" scoped>
