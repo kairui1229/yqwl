@@ -110,6 +110,7 @@ interface SelectType{
 
 const typeList = ref<ListType>({ type: [], important: [], publish: [] })
 
+
 onMounted(async () => {
   const { data } = await typeListApi()
   typeList.value = data
