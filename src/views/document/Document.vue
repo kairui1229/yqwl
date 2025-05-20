@@ -82,13 +82,11 @@
   </el-card>
   <el-button type="primary" class="mt mb" @click="exportToHtml">导出富文本到HTML文件</el-button>
   
-  <Editor
-       v-model="editorContent"
-       api-key="vl1uiq4f6xoumwu9udqi027gocxm7rz2j124z8xfk33d3nmd"
+   <Editor
+      api-key="vl1uiq4f6xoumwu9udqi027gocxm7rz2j124z8xfk33d3nmd"
       :init="{
-        language:'zh_CN',
-        plugins: 'lists link image table code help wordcount',
-        readonly: false
+        language: 'zh_CN',
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
       }"
     />
     <el-button type="primary" @click="handleSubmit" class="mt">提交文章内容</el-button>

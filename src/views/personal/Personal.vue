@@ -5,7 +5,7 @@
         <el-descriptions direction="vertical" border style="margin-top: 20px">
           <el-descriptions-item :rowspan="2" :width="140" label="个人头像" align="center">
             <el-image style="width: 100px; height: 120px"
-              src="https://nicedprk.com/kindeditor/attached/image/20160922/20160922155465976597.jpg" />
+              :src="touxiang" />
           </el-descriptions-item>
           <el-descriptions-item label="姓名">欧阳凯锐</el-descriptions-item>
           <el-descriptions-item label="电话">18838913429</el-descriptions-item>
@@ -173,6 +173,7 @@ import StepForm from '@/components/stepForm/StepForm.vue';
 import { ElMessage, type FormInstance } from 'element-plus';
 import { useRouter } from 'vue-router';
 import {useTabsStore} from '@/store/tabs'
+import touxiang from '@/assets/touxiang.jpg'
 
 const value = ref(new Date())
 const steps = [
