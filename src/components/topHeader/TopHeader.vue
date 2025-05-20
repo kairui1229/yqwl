@@ -5,7 +5,7 @@
           <el-icon style="cursor: pointer"><Bell></Bell></el-icon>
         </el-badge>
         <el-avatar
-        src="https://nicedprk.com/kindeditor/attached/image/20160922/20160922155465976597.jpg"
+        src="https://i.pinimg.com/736x/11/a7/7f/11a77f39d6d412f82c23cb8eda91ed5d.jpg"
         class="ml mr"
         />
     <el-dropdown @command="handleCommand">
