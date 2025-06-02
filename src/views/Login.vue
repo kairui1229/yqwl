@@ -16,7 +16,13 @@
           <el-input v-model="ruleForm.password" type="password" placeholder="请输入密码" prefix-icon="Lock" />
         </el-form-item>
         <el-form-item class="mt">
-          <el-button type="primary" style="width: 100%;" @click="handleLogin">登录</el-button>
+          <el-button 
+            type="primary" 
+            style="width: 100%;" 
+            @click="handleLogin"
+          >
+            登录
+          </el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -29,6 +35,7 @@ import { reactive, ref } from 'vue';
 import type { FormRules, FormInstance } from 'element-plus'
 import { useUserStore } from '@/store/auth';
 import { useRouter } from 'vue-router';
+import { ElLoading } from 'element-plus'; // 引入 ElLoading
 
 interface RuleForm {
   username: string,
@@ -46,26 +53,40 @@ const rules = reactive<FormRules<RuleForm>>({
     { min: 4, max: 8, message: '用户名长度应在 4 到 8 个字符', trigger: 'blur' }
   ],
   password: [
-    { required: true, message: '密码不能为空', trigger: 'blur' },
-    // {
-    //   pattern: /^\d{6}$/,message: '密码必须为6位数字', trigger: 'blur'
-    // }
+    { required: true, message: '密码不能为空', trigger: 'blur' }
   ]
 })
+
 const formRef = ref<FormInstance>()
 const userStore = useUserStore()
 const router = useRouter()
+
+// 定义 loading 状态
+let loadingInstance: any = null
+
 const handleLogin = () => {
+  // 显示全屏 loading
+  loadingInstance = ElLoading.service({
+    fullscreen: true,    // 设置为全屏
+    text: '正在登录...',  // 自定义文字
+    background: 'rgba(0, 0, 0, 0.7)'  // 设置背景色透明度
+  });
+
   formRef.value?.validate(async (valid: boolean) => {
     if (valid) {
-      await userStore.login(ruleForm) //用异步是因为要在登录成功后跳转页面
+      await userStore.login(ruleForm) // 用异步是因为要在登录成功后跳转页面
       router.push('/')
     } else {
       console.log('登录失败')
     }
+    
+    // 关闭全屏 loading
+    loadingInstance.close()
   })
 }
 </script>
+
+
 
 <style lang="less" scoped>
 .bg {
