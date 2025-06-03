@@ -31,7 +31,7 @@
 
 <script setup lang="ts">
 import logo from '@/assets/logo1.png'
-import { reactive, ref } from 'vue';
+import { reactive, ref} from 'vue';
 import type { FormRules, FormInstance } from 'element-plus'
 import { useUserStore } from '@/store/auth';
 import { useRouter } from 'vue-router';
@@ -67,23 +67,23 @@ let loadingInstance: any = null
 const handleLogin = () => {
   // 显示全屏 loading
   loadingInstance = ElLoading.service({
-    fullscreen: true,    // 设置为全屏
-    text: '正在登录...',  // 自定义文字
-    background: 'rgba(0, 0, 0, 0.7)'  // 设置背景色透明度
+    fullscreen: true,
+    text: '正在登录...',
+    background: 'rgba(0, 0, 0, 0.7)'
   });
 
   formRef.value?.validate(async (valid: boolean) => {
     if (valid) {
-      await userStore.login(ruleForm) // 用异步是因为要在登录成功后跳转页面
-      router.push('/')
+      await userStore.login(ruleForm); // 用异步是因为要在登录成功后跳转页面
+      router.push('/');  // 页面跳转
+      loadingInstance.close(); // 跳转后关闭 loading
     } else {
-      console.log('登录失败')
+      console.log('登录失败');
+      loadingInstance.close(); // 失败时关闭 loading
     }
-    
-    // 关闭全屏 loading
-    loadingInstance.close()
-  })
-}
+  });
+};
+
 </script>
 
 
