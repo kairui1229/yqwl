@@ -47,8 +47,9 @@ const add = (name: string, url: string, icon: string) => {
   color: #fff;
   background-color: rgb(34,136,255)!important;
 }
-:deep .el-sub-menu__title:hover{
+:deep(.el-sub-menu__title:hover) {
   color: #fff;
   background-color: rgb(34,136,255)!important;
 }
+
 </style>

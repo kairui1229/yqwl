@@ -80,7 +80,7 @@ const remove = (TabPaneName:string) => {
 </script>
 <style lang="less" scoped>
 .demo-tabs {
-  :deep .is-active{
+  :deep(.is-active){
     background-color: rgb(34,136,255)!important;
     color: white!important;
   }

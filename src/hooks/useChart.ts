@@ -4,7 +4,8 @@ import {
   LineChart,
   RadarChart,
   PieChart,
-} from 'echarts/charts'; // 只引入需要的图表类型（折线图，雷达图，饼图）
+  BarChart, // 添加柱状图
+} from 'echarts/charts'; // 只引入需要的图表类型（折线图，雷达图，饼图，柱状图）
 import {
   TitleComponent,
   TooltipComponent,
@@ -19,6 +20,7 @@ import type {
   LineSeriesOption,
   RadarSeriesOption,
   PieSeriesOption,
+  BarSeriesOption, // 添加柱状图类型声明
 } from 'echarts/charts';
 
 import type {
@@ -35,6 +37,7 @@ type ECOption = ComposeOption<
   | LineSeriesOption
   | RadarSeriesOption
   | PieSeriesOption
+  | BarSeriesOption // 添加柱状图的 Option 类型
   | TitleComponentOption
   | TooltipComponentOption
   | GridComponentOption
@@ -51,6 +54,7 @@ echarts.use([
   LineChart, // 注册折线图
   RadarChart, // 注册雷达图
   PieChart, // 注册饼图
+  BarChart, // 注册柱状图
   CanvasRenderer, // 注册渲染器
 ]);
 
