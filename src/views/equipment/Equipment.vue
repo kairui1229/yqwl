@@ -106,7 +106,7 @@ const getTagType = (cardType: string) => {
     case "季卡":
       return "success"; // 绿色
     case "年卡":
-      return ""; // 默认蓝色
+      return "primary"; // 默认蓝色
     default:
       return "info";
   }
