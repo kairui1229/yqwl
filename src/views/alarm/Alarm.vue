@@ -94,7 +94,10 @@
         </el-form>
       </template>
     </StepForm>
-    <el-result :icon="randomIcon" :title="`设备编号：${randomDeviceId}`" :sub-title="`该任务已催促${randomUrgency}次，请抓紧处理`">
+    <el-result :title="`设备编号：${randomDeviceId}`" :sub-title="`该任务已催促${randomUrgency}次，请抓紧处理`">
+      <template #icon>
+         <el-icon><randomIcon /></el-icon> 
+      </template>
       <template #extra>
         <el-button type="primary" @click="closeDrawer">我已知晓</el-button>
       </template>

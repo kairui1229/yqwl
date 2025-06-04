@@ -71,7 +71,7 @@
       disable-transitions 
       type="success" 
       v-for="item in selectList" 
-      :key="item" 
+      :key="item.name" 
       class="mr" 
       closable
       @close="handleClose(item.num)"

@@ -36,6 +36,7 @@ import { useTabsStore} from '@/store/tabs';
 import { useUserStore } from '@/store/auth';
 import { storeToRefs } from 'pinia';
 import { useRouter, useRoute} from 'vue-router';
+import type { TabsPaneContext } from 'element-plus'
 
 const route = useRoute()
 const router = useRouter()
@@ -65,15 +66,19 @@ const {name,url,icon} = findObjectByUrl(menu.value,route.path)
 addTab(name,url,icon)
 setCurrentTab(name,url)
 
-const handleClick = ({index}:{index:number}) => {
-  router.push(tabs.value[index].url)//跳转
-  setCurrentTab(tabs.value[index].name, tabs.value[index].url)//设置当前高亮
+const handleClick = (pane: TabsPaneContext) => {
+  // 使用 pane.index! 确保不为 undefined
+  const index = Number(pane.index!) // 转换为数字
+  router.push(tabs.value[index].url)
+  setCurrentTab(tabs.value[index].name, tabs.value[index].url)
 }
-const remove = (TabPaneName:string) => {
-  removeTab(TabPaneName)
-  router.push(currentTab.value.url)
-  //！！！手动触发一次点击当前高亮事件，不手动触发的话会出现问题！！！
-  setCurrentTab(currentTab.value.name,currentTab.value.url)
+
+const remove = (TabPaneName: string | number) => {
+  // 转换为字符串类型
+  const name = String(TabPaneName);
+  removeTab(name);
+  router.push(currentTab.value.url);
+  setCurrentTab(currentTab.value.name, currentTab.value.url);
 }
 
 
