@@ -12,6 +12,8 @@ import {
   GridComponent,
   DatasetComponent,
   TransformComponent,
+  LegendComponent,
+  GraphicComponent,
 } from 'echarts/components'; // 引入需要的组件（标题、提示框、网格等）
 import { CanvasRenderer } from 'echarts/renderers'; // 引入渲染器
 
@@ -51,6 +53,8 @@ echarts.use([
   GridComponent,
   DatasetComponent,
   TransformComponent,
+  LegendComponent,
+  GraphicComponent,
   LineChart, // 注册折线图
   RadarChart, // 注册雷达图
   PieChart, // 注册饼图

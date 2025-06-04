@@ -68,10 +68,12 @@
   </el-card>
   <el-card class="mt empty-card" v-else>
   <el-result
-    icon="info-filled"
     title="请先选择站点名称"
     sub-title="您需要先在上方选择站点才能查看详细信息"
   >
+   <template #icon>
+    <el-icon><InfoFilled /></el-icon> <!-- 你可以换任意图标 -->
+  </template>
   </el-result>
 </el-card>
 </template>
