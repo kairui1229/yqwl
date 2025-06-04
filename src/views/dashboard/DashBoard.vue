@@ -16,11 +16,15 @@
             <img :src="item.img" class="mt mb" />
             <h1 class="md">{{ item.used }} / {{ item.total }}</h1>
             <div class="statistic-card">
-              <el-statistic :value="item.abnormal">
+              <el-statistic :value="item.abnormal.value"> <!-- 添加 .value 获取原始值 -->
                 <template #title>
                   <div style="display: inline-flex; align-items: center">
                     异常设备
-                    <el-tooltip effect="dark" :content="`当前有${item.abnormal.value}台设备异常，请尽快处理!`" placement="top">
+                    <el-tooltip 
+                      effect="dark" 
+                      :content="`当前有${item.abnormal.value}台设备异常，请尽快处理!`" 
+                      placement="top"
+                    >
                       <el-icon style="margin-left: 4px" :size="12">
                         <Warning />
                       </el-icon>
