@@ -29,6 +29,7 @@
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/tsconfig": "^0.7.0",
     "less": "^4.2.2",
+    "rollup-plugin-visualizer": "^6.0.1",
     "sass": "^1.85.1",
     "sass-loader": "^16.0.5",
     "typescript": "~5.7.2",

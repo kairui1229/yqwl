@@ -4,7 +4,6 @@ import path from 'path'
 import viteCompression from 'vite-plugin-compression'
 import viteImagemin from 'vite-plugin-imagemin';
 
-
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
@@ -14,7 +13,7 @@ export default defineConfig({
       threshold: 10240,
       algorithm: 'gzip',
       ext: '.gz',
-      deleteOriginFile: false
+      deleteOriginFile: false,
     }),
     viteImagemin({
       // 配置图片压缩选项
@@ -36,7 +35,7 @@ export default defineConfig({
         ]
       },
       webp: {
-        quality: 75, // WebP 图像压缩质量
+        quality: 50, // WebP 图像压缩质量
       },
     }),
   ],
@@ -49,5 +48,22 @@ export default defineConfig({
     host: true,
     cors: true,
     allowedHosts: ['ringtail-alive-intensely.ngrok-free.app']// 配置允许跨域的域名
-  }
+  },
+   build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('echarts')) return 'echarts';
+          if (id.includes('element-plus')) return 'element-plus';
+          if (id.includes('node_modules')) return 'vendor';
+        },
+      },
+    },
+      terserOptions: {
+      compress: {
+        drop_console: true, // 去除 console.log
+        drop_debugger: true, // 去除 debugger
+      }
+    }
+  },
 })

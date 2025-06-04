@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import logo from '@/assets/logo1.png'
+import logo from '@/assets/logo1.webp'
 import { reactive, ref} from 'vue';
 import type { FormRules, FormInstance } from 'element-plus'
 import { useUserStore } from '@/store/auth';
@@ -90,7 +90,7 @@ const handleLogin = () => {
 
 <style lang="less" scoped>
 .bg {
-  background-image: url(../assets/bg1.jpg);
+  background-image: url(../assets/bg1.avif);
   background-size: cover;
   background-position: center center;
   min-height: 100vh;

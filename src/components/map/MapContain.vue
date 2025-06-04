@@ -7,7 +7,7 @@ import { onMounted, ref, onUnmounted } from "vue";
 import AMapLoader from "@amap/amap-jsapi-loader";
 import { mapListApi } from "@/api/map";
 import icon from "@/assets/flashIcon.png"
-import station from "@/assets/station.jpg"
+import station from "@/assets/station.webp"
 
 let map: any = null;
 const markersData = ref([]);

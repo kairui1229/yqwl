@@ -11,7 +11,7 @@
 <script lang="ts" setup>
 import { useUserStore } from '@/store/auth';
 import MenuItem from './MenuItem.vue';
-import logo from "@/assets/logo1.png"
+import logo from "@/assets/logo1.webp"
 
 const userStore = useUserStore();
 const menuitems = userStore.menu;

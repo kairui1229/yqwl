@@ -173,7 +173,7 @@ import StepForm from '@/components/stepForm/StepForm.vue';
 import { ElMessage, type FormInstance } from 'element-plus';
 import { useRouter } from 'vue-router';
 import {useTabsStore} from '@/store/tabs'
-import touxiang from '@/assets/touxiang.jpg'
+import touxiang from '@/assets/touxiang.webp'
 
 const value = ref(new Date())
 const steps = [

@@ -31,7 +31,7 @@ import { useUserStore } from '@/store/auth';
 import { useTabsStore } from '@/store/tabs';
 import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
-import touxiang from '@/assets/touxiang.jpg'
+import touxiang from '@/assets/touxiang.webp'
 
 const info = ref(5)
 const {username} = storeToRefs(useUserStore())
